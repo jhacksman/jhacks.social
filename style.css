@@ -26,10 +26,17 @@ body {
     min-height: 100vh;
 }
 
+/* Page fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 main {
     max-width: 640px;
     margin: 0 auto;
     padding: 4rem 1.5rem;
+    animation: fadeIn 0.6s ease-out;
 }
 
 header {
@@ -42,6 +49,12 @@ header {
     border-radius: 50%;
     margin-bottom: 1.5rem;
     border: 3px solid var(--border);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
 }
 
 h1 {
@@ -103,12 +116,13 @@ h2 {
     border: 1px solid var(--border);
     border-radius: 8px;
     text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
 .podcast-card:hover {
     border-color: var(--accent-dim);
     background: #1a1a1a;
+    transform: translateX(4px);
 }
 
 .podcast-name {
